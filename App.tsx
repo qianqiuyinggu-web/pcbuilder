@@ -1,8 +1,8 @@
 
 import { GoogleGenAI, GenerateContentResponse, Type } from "@google/genai";
-import { PCPart, BuildSummary, PartCategory, GamePerformance } from "../types";
+import { PCPart, BuildSummary, PartCategory, GamePerformance } from "./types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 
 export const getPartSuggestions = async (category: PartCategory): Promise<string[]> => {
   const prompt = `日本市場で人気の自作PC用 ${category} を10個、名称のみ箇条書きでリストアップしてください。余計な説明は不要です。`;
